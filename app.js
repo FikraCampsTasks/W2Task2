@@ -1,6 +1,5 @@
 // to emulate a full ES2015+ environment 
 import 'babel-polyfill'
-
 // Declare news globally
 let news;
 
