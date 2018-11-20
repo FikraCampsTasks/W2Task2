@@ -21,6 +21,23 @@ document.addEventListener("DOMContentLoaded", () => {
   getNews("iraq");
 });
 
+// Listener to all clicks on pages
+document.addEventListener("click", event => {
+  let element = event.target;
+  // Using switch to filter click on up and down vote only
+  let counterId;
+  switch (element.id) {
+    case "upVote":
+      counterId = `counter${element.getAttribute("counter")}`;
+      updateCounter(counterId, 1);
+      break;
+      case "downVote":
+      counterId = `counter${element.getAttribute("counter")}`;
+      updateCounter(counterId, -1);
+      break;
+  }
+});
+
 /**
  * Get news from "newsapi.org" and update UI.
  * @param {string} query name of what you search for
@@ -59,9 +76,9 @@ function createArticle(article, i) {
         <time>${article.publishedAt}</time>
       </div>
       <div id="voter">
-        <img height="13px" onclick="incVote('counter${i}');" src="${require("./assets/upvote.svg")}" alt="">
+        <img height="13px" id="upVote" counter=${i} src="${require("./assets/upvote.svg")}" alt="">
         <div id="counter${i}" url=${article.url}>${article.counter}</div>
-        <img  height="13px" onclick="decVote('counter${i}');" src="${require("./assets/downvote.svg")}" alt="">
+        <img  height="13px" id="downVote" counter=${i} src="${require("./assets/downvote.svg")}" alt="">
       </div>
     </article>
   `;
@@ -87,18 +104,6 @@ function retrieveVote(id) {
   let countersDB = JSON.parse(localStorage.getItem("countersDB") || "{}");
   return countersDB[id] || 0;
 }
-
-// use 'window.' to declare global function
-
-// Increment vote counter by one
-window.incVote = function(id) {
-  updateCounter(id, 1);
-};
-
-// Decrement vote counter by one
-window.decVote = function(id) {
-  updateCounter(id, -1);
-};
 
 /**
  * Update counter value in html and store it to localstorage.
