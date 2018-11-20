@@ -5,17 +5,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!--Title of page -->
   <title>Document</title>
+  <!--Link all styles to project -->
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display|Source+Sans+Pro:400,700" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/header.css">
   <link rel="stylesheet" href="css/articles.css">
-
-  <link href="https://fonts.googleapis.com/css?family=Playfair+Display|Source+Sans+Pro:400,700" rel="stylesheet">
-
-
 </head>
 
 <body>
+  <!--Header of page contain logo and search input -->
   <header>
     <div><img src="assets/logo.png" alt=""></div>
     <div class="search-box">
@@ -23,21 +23,12 @@
       <input placeholder="search a topic" type="text" name="" id="search">
     </div>
   </header>
+  <!--News article container -->
   <main id="news">
-    <article>
-      <img width="124px" height="124px" src="https://unsplash.it/124/124" alt="">
-      <div id="text">
-        <h1>${article.title}</h1>
-        <p>${article.description}</p>
-        <time>${article.publishedAt}</time>
-      </div>
-      <div id="voter">
-        <img height="13px" src="assets/upvote.svg" alt="">
-        <div id="counter">0</div>
-        <img height="13px" src="assets/downvote.svg" alt="">
-      </div>
-    </article>
+    <!--	Temporarily until loading articles -->
+    <h1>Loading ...</h1>
   </main>
+  <!--	Link with js code -->
   <script src="app.js"></script>
 </body>
 
